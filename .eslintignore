@@ -1,0 +1,14 @@
+node_modules
+__tests__/
+.vscode/
+android/
+coverage/
+ios/
+.expo
+.expo-shared
+docs/
+cli/
+scripts/
+expo-env.d.ts
+nativewind-env.d.ts
+yarn.lock

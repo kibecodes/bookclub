@@ -1,37 +1,80 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
+import { ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
-import * as SplashScreen from 'expo-splash-screen';
-import { useEffect } from 'react';
-import 'react-native-reanimated';
+import { useColorScheme } from 'nativewind';
+import React from 'react';
+import { StatusBar } from 'react-native';
 
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { useThemeConfig } from '@/constants/use-theme';
 
-// Prevent the splash screen from auto-hiding before asset loading is complete.
-SplashScreen.preventAutoHideAsync();
+import '../global.css';
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  const theme = useThemeConfig();
+  const { colorScheme } = useColorScheme();
+  const [loaded, error] = useFonts({
+    'Praise-Regular': require('../assets/fonts/Praise-Regular.ttf'),
+    'ChakraPetch-Regular': require('../assets/fonts/ChakraPetch-Regular.ttf'),
   });
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
-
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <ThemeProvider value={theme}>
       <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
+        <Stack.Screen name="index" />
+        <Stack.Screen
+          name="sign-in"
+          options={{
+            title: 'Sign In',
+            headerShown: false,
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="login"
+          options={{
+            title: 'Login',
+            headerShown: false,
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="settings"
+          options={{
+            headerShown: false,
+            title: 'Settings',
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="home"
+          options={{
+            title: 'Home',
+            headerShown: false,
+            headerTitleAlign: 'center',
+          }}
+        />
+        <Stack.Screen
+          name="profile"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="book-details"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="owner"
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack>
+      <StatusBar
+        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
+      />
     </ThemeProvider>
   );
 }
