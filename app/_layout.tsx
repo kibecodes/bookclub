@@ -4,6 +4,7 @@ import { Stack } from 'expo-router';
 import { useColorScheme } from 'nativewind';
 import React from 'react';
 import { StatusBar } from 'react-native';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { useThemeConfig } from '@/constants/use-theme';
 
@@ -18,63 +19,60 @@ export default function RootLayout() {
   });
 
   return (
-    <ThemeProvider value={theme}>
-      <Stack>
-        <Stack.Screen name="index" />
-        <Stack.Screen
-          name="sign-in"
-          options={{
-            title: 'Sign In',
-            headerShown: false,
-            headerTitleAlign: 'center',
-          }}
+    <GestureHandlerRootView>
+      <ThemeProvider value={theme}>
+        <RootNavigator />
+        <StatusBar
+          barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
         />
-        <Stack.Screen
-          name="login"
-          options={{
-            title: 'Login',
-            headerShown: false,
-            headerTitleAlign: 'center',
-          }}
-        />
-        <Stack.Screen
-          name="settings"
-          options={{
-            headerShown: false,
-            title: 'Settings',
-            headerTitleAlign: 'center',
-          }}
-        />
-        <Stack.Screen
-          name="home"
-          options={{
-            title: 'Home',
-            headerShown: false,
-            headerTitleAlign: 'center',
-          }}
-        />
-        <Stack.Screen
-          name="profile"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="book-details"
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen
-          name="owner"
-          options={{
-            headerShown: false,
-          }}
-        />
-      </Stack>
-      <StatusBar
-        barStyle={colorScheme === 'dark' ? 'light-content' : 'dark-content'}
-      />
-    </ThemeProvider>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
+
+const RootNavigator = () => {
+  return (
+    <Stack>
+      <Stack.Screen name="index" />
+      <Stack.Screen
+        name="login"
+        options={{
+          title: 'Login',
+          headerShown: true,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="owner"
+        options={{
+          title: 'Owner',
+          headerShown: false,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          headerShown: true,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="settings"
+        options={{
+          title: 'Settings',
+          headerShown: false,
+          headerTitleAlign: 'center',
+        }}
+      />
+      <Stack.Screen
+        name="home/home"
+        options={{
+          title: 'Home',
+          headerShown: false,
+        }}
+      />
+    </Stack>
+  );
+};

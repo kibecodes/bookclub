@@ -42,7 +42,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     quotes: ['error', 'single'],
-    'prettier/prettier': 1,
+    'prettier/prettier': 0,
   },
   overrides: [
     {

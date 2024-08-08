@@ -26,14 +26,14 @@ export default function Login() {
 
         <Pressable
           className="w-44 h-20 rounded-full border items-center justify-center p-2"
-          onPress={() => router.push('/settings')}>
+          onPress={() => router.navigate('/settings')}>
           <Text className="text-2xl font-bold text-black dark:text-white">
             Login
           </Text>
         </Pressable>
       </View>
 
-      <Link href={'/home'}>
+      <Link href={'/home/home'}>
         <Text className="text-2xl text-blue-500">Home</Text>
       </Link>
     </View>

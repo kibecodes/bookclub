@@ -12,7 +12,7 @@ export default function Settings() {
     <View className="flex-1 p-4 pt-16 justify-start items-center">
       <Pressable
         className="flex-row px-4 w-full h-20 items-center justify-between shadow rounded-none"
-        onPress={() => router.push('/profile')}>
+        onPress={() => router.navigate('/profile')}>
         <View className="flex-row gap-3">
           <AntDesign name="user" size={28} color="black" />
           <Text className="text-2xl text-black dark:text-white">Profile</Text>
