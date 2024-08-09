@@ -5,10 +5,10 @@ import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import SimpleLineIcons from '@expo/vector-icons/SimpleLineIcons';
 import { useLocalSearchParams } from 'expo-router';
 import React from 'react';
-import { View, Text, Image, ImageSourcePropType } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
-export const BookDetails = () => {
-  const { id, name } = useLocalSearchParams();
+export const DetailsScreen = () => {
+  const { id, author, title } = useLocalSearchParams();
 
   return (
     <View className="flex-1 justify-start items-center px-2 pt-16">
@@ -18,18 +18,16 @@ export const BookDetails = () => {
         </View>
         <Text className="font-bold text-2xl">Book Details</Text>
         <Text className="font-bold text-2xl">Book ID: {id}</Text>
-        <Text className="font-bold text-2xl">Book Author: {name}</Text>
+        <Text className="font-bold text-2xl">Book Author: {author}</Text>
+        <Text className="font-bold text-2xl">Book Title: {title}</Text>
 
         <View className="flex-1 flex-row justify-between w-full bg-teal-200 p-2 pr-0">
           <View className="h-3/4 w-80 bg-slate-500">
-            {/* {image !== undefined ? (
-              <Image
-                className="h-full w-full rounded-xl"
-                source={image}
-              />
-            ) : (
-              <Image className="h-full w-full rounded-xl" alt="book.jpg" />
-            )} */}
+            <Image
+              className="h-full w-full rounded-xl"
+              source={{}}
+              alt="photo.jpg"
+            />
           </View>
           <View className="flex-col h-64 w-fit p-4 justify-between items-center pt-4 ">
             <FontAwesome name="heart-o" size={28} color="black" />

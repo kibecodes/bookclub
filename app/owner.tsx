@@ -1,6 +1,6 @@
 import { useRouter } from 'expo-router';
 import React from 'react';
-import { View, Text, FlatList, Image, Pressable } from 'react-native';
+import { View, Text, FlatList, Image } from 'react-native';
 import { Card } from 'react-native-paper';
 
 import { DataProps } from '@/types/navigation';
