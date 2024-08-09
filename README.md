@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+
 # Welcome to your Expo app 👋
 
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
@@ -52,3 +54,5 @@ Join our community of developers creating universal apps.
 # bookclub
 
 App for sharing your favorite books with friends and family.
+
+> > > > > > > 5a057c8ebbe7a45c51dac142103a2b95a93213b7

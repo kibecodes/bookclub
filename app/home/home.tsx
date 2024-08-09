@@ -7,8 +7,6 @@ import { Card } from 'react-native-paper';
 
 import { DataProps } from '@/types/navigation';
 
-import { BookDetails } from './books/[id]';
-
 const books: DataProps = [
   {
     id: '1',
@@ -98,7 +96,7 @@ export default function Home() {
                 onPress={() =>
                   router.navigate({
                     pathname: '/home/books/[id]',
-                    params: { id: item.id },
+                    params: { id: item.id, name: item.author },
                   })
                 }>
                 <View className="flex-1 flex-row p-2 gap-2">
@@ -122,7 +120,6 @@ export default function Home() {
                     <Text className="pt-2 pr-4">Rating</Text>
                   </View>
                 </View>
-                <BookDetails book={item} />
               </Pressable>
             );
           }}
