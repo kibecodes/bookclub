@@ -8,7 +8,7 @@ export default function Profile() {
   return (
     <View className="flex-1 justify-start items-center pt-16">
       <Text>Profile</Text>
-      <Link href={'/home/home'}>
+      <Link href={'/(home)'}>
         <Text>Go Home</Text>
       </Link>
     </View>

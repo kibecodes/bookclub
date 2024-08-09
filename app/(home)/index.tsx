@@ -7,8 +7,6 @@ import { Card } from 'react-native-paper';
 
 import { DataProps } from '@/types/navigation';
 
-import { BookDetails } from './books/[id]';
-
 const books: DataProps = [
   {
     id: '1',
@@ -42,7 +40,7 @@ const books: DataProps = [
   },
 ];
 
-export default function Home() {
+export default function HomeScreen() {
   const router = useRouter();
   const tap = Gesture.Tap()
     .onEnd(() => router.navigate('/settings'))
@@ -94,10 +92,10 @@ export default function Home() {
           renderItem={({ item }) => {
             return (
               <Pressable
-                className="flex-1 flex-col h-full w-full my-2 rounded-xl bg-cyan-200"
+                className="flex-1 flex-col h-full w-full my-2 rounded-xl bg-cyan-300"
                 onPress={() =>
                   router.navigate({
-                    pathname: '/home/books/[id]',
+                    pathname: '/books/[id]',
                     params: { id: item.id },
                   })
                 }>
@@ -122,7 +120,6 @@ export default function Home() {
                     <Text className="pt-2 pr-4">Rating</Text>
                   </View>
                 </View>
-                <BookDetails book={item} />
               </Pressable>
             );
           }}

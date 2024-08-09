@@ -67,9 +67,8 @@ const RootNavigator = () => {
         }}
       />
       <Stack.Screen
-        name="home/home"
+        name="(home)"
         options={{
-          title: 'Home',
           headerShown: false,
         }}
       />

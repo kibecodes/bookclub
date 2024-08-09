@@ -1,4 +1,4 @@
-import { Link, useRouter } from 'expo-router';
+import { useRouter } from 'expo-router';
 import * as React from 'react';
 import { View, Text, TextInput, Pressable } from 'react-native';
 
@@ -26,16 +26,12 @@ export default function Login() {
 
         <Pressable
           className="w-44 h-20 rounded-full border items-center justify-center p-2"
-          onPress={() => router.navigate('/settings')}>
+          onPress={() => router.push('/(home)')}>
           <Text className="text-2xl font-bold text-black dark:text-white">
             Login
           </Text>
         </Pressable>
       </View>
-
-      <Link href={'/home/home'}>
-        <Text className="text-2xl text-blue-500">Home</Text>
-      </Link>
     </View>
   );
 }
